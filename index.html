@@ -2,41 +2,238 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
-  <title>The Trivia Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <title>The Trivia Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <!-- always reset 1st before style -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- always reset 1st before style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <link rel="stylesheet" type="text/images" href="assets/images">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" type="text/images" href="assets/images">
 
+    <style>
+        * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+    }
+    
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+    }
 
+    h1{
+        align-content: center;
+    }
+
+     p,h3,section{
+        color: #000;
+    } 
+    
+    .content {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    #myBtn {
+        width: 200px;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    #myBtn:hover {
+        background: #ddd;
+        color: black;
+    }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+    </style>
 </head>
 
 <body>
-  <div id="wrapper">
-    <!-- The title of the page -->
-    <h1>The Trivia Game</h1>
 
-    <div id="subwrapper">
-      <button type="button" name="" id="start" class="btn btn-danger btn-lg">start</button>
-
+    <video autoplay muted loop id="myVideo">
+        <source src="LOTR.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="card text-center">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Body</p>
+      </div>
     </div>
-  </div>
 
-  <!-- Link to JavaScript game.js -->
-  <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
-  <!-- Link to jquery -->
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <div class="card text-center">
+    <div class="content">
+        <h1>Middle Earth Trivia Journey</h1>
+        <button id="myBtn" onclick="myFunction()">START</button>
+
+        <!-- TIMER GOES HERE AND WILL APPEAR WHE START BUTTON IS HIDDEN -->
+
+        <hr>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>Who is the main character?</h3>
+                    <section class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="frodoAns" id="frodo" value="checkedValue">
+                            Frodo
+                        </label>
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="galumAns" id="galum" value="checkedValue">
+                            Galum
+                        </label>
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="gandolfAns" id="gandolf" value="checkedValue">
+                            Gandolf
+                        </label>
+                    </section>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                        <h3>Who is the main character?</h3>
+                        <section class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="frodoAns" id="frodo" value="checkedValue">
+                                Frodo
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="galumAns" id="galum" value="checkedValue">
+                                Galum
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gandolfAns" id="gandolf" value="checkedValue">
+                                Gandolf
+                            </label>
+                        </section>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                        <h3>Who is the main character?</h3>
+                        <section class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="frodoAns" id="frodo" value="checkedValue">
+                                Frodo
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="galumAns" id="galum" value="checkedValue">
+                                Galum
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gandolfAns" id="gandolf" value="checkedValue">
+                                Gandolf
+                            </label>
+                        </section>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                        <h3>Who is the main character?</h3>
+                        <section class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="frodoAns" id="frodo" value="checkedValue">
+                                Frodo
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="galumAns" id="galum" value="checkedValue">
+                                Galum
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gandolfAns" id="gandolf" value="checkedValue">
+                                Gandolf
+                            </label>
+                        </section>
+                </div>
+            </div>
+        </div>
+
+</div>
+    </div>
+
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+        $(document).ready(function () {
+            // $("section").hide();
+            $("#myBtn").click(function () {
+                $("#myBtn").hide(), ("p").show();
+            });
+            $("#myBtn").click(function () {
+                $("p").show();
+            });
+        });
+
+    </script>
 
 </body>
 
